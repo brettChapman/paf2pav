@@ -2,7 +2,7 @@
 
 This repository contains instructions for linearising a pangenome graph by generating a PAF file and converting it to a PAV binary matrix for use with [Panache](https://github.com/SouthGreenPlatform/panache)
 
-## Generating the PAF file:
+## Generating the PAF file
 
 The PAF file is derived from a pangenome graph generated using [PGGB](https://github.com/pangenome/pggb). An [ODGI](https://github.com/pangenome/odgi) graph or  GFA graph is expected. 
 
