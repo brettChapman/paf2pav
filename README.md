@@ -1,6 +1,6 @@
-# paf2pav 
+# paf2pav - linearising a pangenome graph
 
-This repository contains instructions for converting a PAF file to a PAV binary matrix for use with [Panache](https://github.com/SouthGreenPlatform/panache)
+This repository contains instructions for linearising a pangenome graph by generating a PAF file and converting it to a PAV binary matrix for use with [Panache](https://github.com/SouthGreenPlatform/panache)
 
 ## Generating the PAF file:
 
