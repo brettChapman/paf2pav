@@ -4,7 +4,7 @@ This repository contains instructions for converting a PAF file to a PAV binary 
 
 ## Generating the PAF file:
 
-The PAF file is derived from a [PGGB](https://github.com/pangenome/pggb) pangenome graph given an [ODGI](https://github.com/pangenome/odgi) graph or generated from a GFA.
+The PAF file is derived from a pangenome graph generated using [PGGB](https://github.com/pangenome/pggb). An [ODGI](https://github.com/pangenome/odgi) graph or  GFA graph is expected. 
 
 ```
 reference_prefix='Morex'
@@ -22,7 +22,7 @@ odgi untangle -t 10 -i pangenome.og -Q query_paths.txt -r ${reference} -p > pang
 
 ## Generate the PAV binary matrix given the PAF file
 
-##Run the script in this repository with the PAF file to generate a PAV binary matrix tsv file.
+##Run the script in this repository with the PAF file to generate a PAV binary matrix tsv file, formatted to be compatible with Panache.
 
 ```
 paf2pav.py -i pangenome.paf -o pangenome_pav.tsv 
