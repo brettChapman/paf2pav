@@ -20,7 +20,7 @@ reference=$(odgi paths -i pangenome.og -L | grep ${reference_prefix})
 odgi untangle -t 10 -i pangenome.og -Q query_paths.txt -r ${reference} -p > pangenome.paf
 ```
 
-## Generate the PAV binary matrix given the PAF file
+## Generate the PAV binary matrix
 
 Run the script ```paf2pav.py``` in this repository with the PAF file to generate a PAV binary matrix tsv file, formatted to be compatible with Panache.
 
