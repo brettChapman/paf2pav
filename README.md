@@ -51,5 +51,5 @@ Third, you may need to filter the PAV binary matrix to retain only variations ab
 
 ```
 #Filter out any variation below 300bp
-cat merged_pangenome_pav_matrix.tsv | awk '{if (($3-$2) > 299) print $0}' >> merged_pangenome_pav_matrix.filtered.tsv
+cat merged_pangenome_pav_matrix.tsv | awk '{if (($3-$2) > 299) print $0}' > merged_pangenome_pav_matrix.filtered.tsv
 ```
