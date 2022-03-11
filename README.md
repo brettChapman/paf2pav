@@ -46,3 +46,10 @@ Second run ```merge_pav.py``` from this repository on all the modified PAV files
 ```
 merge_pav.py -i "*.mod.tsv" -o merged_pangenome_pav_matrix.tsv
 ```
+
+Third, you may need to filter the PAV binary matrix to retain only variations above a certain size to reduce processing overhead by Panache, plus visualisation of any small variations will be difficult to see.
+
+```
+#Filter out any variation below 300bp
+cat merged_pangenome_pav_matrix.tsv | awk '{if (($3-$2) > 299) print $0}' >> merged_pangenome_pav_matrix.filtered.tsv
+```
