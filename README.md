@@ -32,7 +32,7 @@ paf2pav.py -i pangenome.paf -o pangenome_pav.tsv
 
 If you have multiple PAV files across different chromosomes you'll need to merge them together.
 
-First format each PAV file so the headers are consistent, removing unnecessary chromosome names, version numbers etc.
+First, format each PAV file so the headers are consistent, removing unnecessary chromosome names, version numbers etc.
 
 Place the following in a bash script and modify as needed for your data:
 ```
@@ -41,7 +41,7 @@ for i in `ls pangenome_chr*H_pav.tsv`;do
 done
 ```
 
-Second run ```merge_pav.py``` from this repository on all the modified PAV files.
+Second, run ```merge_pav.py``` from this repository on all the modified PAV files.
 
 ```
 merge_pav.py -i "*.mod.tsv" -o merged_pangenome_pav_matrix.tsv
