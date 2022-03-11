@@ -27,3 +27,22 @@ Run the script ```paf2pav.py``` in this repository with the PAF file to generate
 ```
 paf2pav.py -i pangenome.paf -o pangenome_pav.tsv
 ```
+
+## Merging PAV binary matrices across chromosomes
+
+If you have multiple PAV files across different chromosomes you'll need to merge them together
+
+### First format each PAV file so the headers are consistent, removing chromosome names, version numbers etc
+
+Place the following in a bash script and modify as needed for your data:
+```
+for i in `ls pangenome_chr*H_pav.tsv`;do
+	cat $i | sed 's/Morex_v2_//g' | sed 's/_v1.1_chr[1-10]H//g' | sed 's/_v1_chr[1-10]H//g' | sed 's/_v2_chr[1-7]H//g' > $i.mod.tsv
+done
+```
+
+### Second run ```merge_pav.py``` from this repository on all the modified PAV files
+
+```
+merge_pav.py -i "*.mod.tsv" -o merged_pangenome_pav_matrix.tsv
+```
