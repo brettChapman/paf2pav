@@ -37,7 +37,7 @@ First, format each PAV file so the headers are consistent, removing unnecessary 
 Place the following in a bash script and modify as needed for your data:
 ```
 for i in `ls pangenome_chr*H_pav.tsv`;do
-	cat $i | sed 's/Morex_v2_//g' | sed 's/_v1.1_chr[1-10]H//g' | sed 's/_v1_chr[1-10]H//g' | sed 's/_v2_chr[1-7]H//g' > $i.mod.tsv
+	cat $i | sed 's/Morex_v2_//g' | sed 's/_v1.1_chr[1-10]H//g' | sed 's/_v1_chr[1-10]H//g' | sed 's/_v2_chr[1-10]H//g' > $i.mod.tsv
 done
 ```
 
