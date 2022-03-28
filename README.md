@@ -47,9 +47,11 @@ Second, run ```merge_pav.py``` from this repository on all the modified PAV file
 merge_pav.py -i "*.mod.tsv" -o merged_pangenome_pav_matrix.tsv
 ```
 
-Third, you may need to filter the PAV binary matrix to retain only variations above a certain size to reduce processing overhead by Panache, plus visualisation of any small variations will be difficult to see.
-
+Third, you may need to filter the PAV binary matrix to retain only variations intersecting with gene regions and above a certain size to reduce processing overhead by Panache, plus visualisation of any small variations (SNPs and small INDELs) will be difficult to see.
 ```
+#Filter out variaitons not intersecting with gene regions
+bedtools intersect -a merged_pangenome_pav_matrix.tsv -b Morex.gff > merged_pangenome_pav_matrix.overlaps.tsv
+
 #Filter out any variation below 300bp
-cat merged_pangenome_pav_matrix.tsv | awk '{if (($3-$2) > 299) print $0}' > merged_pangenome_pav_matrix.filtered.tsv
+cat merged_pangenome_pav_matrix.overlaps.tsv | awk '{if (($3-$2) > 199) print $0}' > merged_pangenome_pav_matrix.overlaps.filtered.tsv
 ```
