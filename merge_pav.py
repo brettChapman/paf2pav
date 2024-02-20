@@ -32,6 +32,17 @@ def main():
             pav_list.append(df)
 
         pangenome_pav_matrix = pd.concat(pav_list, axis=0, ignore_index=True)
+
+        #filter pav matrix to retain regions where there is at least 1 presence, not all abscent
+        col = pangenome_pav_matrix.columns[6:]
+        matrix_right = pangenome_pav_matrix[col]
+
+        col = pangenome_pav_matrix.columns[:6]
+        matrix_left = pangenome_pav_matrix[col]
+
+        matrix_right = matrix_right[matrix_right == 1].dropna(how='all').fillna(0).astype(int)
+
+        pangenome_pav_matrix = pd.merge(matrix_left, matrix_right, how = 'inner', right_index = True, left_index = True)
         
         if pavout_file:
             pangenome_pav_matrix.to_csv(pavout_file, sep='\t', index=False, header=True)
